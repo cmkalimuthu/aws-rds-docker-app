@@ -1,9 +1,10 @@
 
+
 version: '3.7'
 services: 
    
     eureka-server:
-        image: ram1uj/eureka-server:0.1
+        image: cmkalimuthu/eureka-server
         ports: 
             - "8761:8761"
         restart: always
@@ -11,10 +12,10 @@ services:
         networks:
             - app-network
     
-    product-service:
-        image: ram1uj/product-service:0.1
+    truyum-zuul-gateway:
+        image: cmkalimuthu/truyum-zuul-gateway
         ports: 
-            - "5100-5199:5100"
+            - "8083-8182:8083"
         restart: always
         environment:
             EUREKA_HOST: eureka-server
@@ -24,10 +25,10 @@ services:
         networks:
             - app-network
  
-    coupon-service:
-        image: ram1uj/coupon-service:0.1
+    spring-rest-api:
+        image: cmkalimuthu/spring-rest-api
         ports: 
-            - "5200-5299:5200"
+            - "8080-8179:8080"
         restart: always
         environment:
             EUREKA_HOST: eureka-server
@@ -37,19 +38,11 @@ services:
         networks:
             - app-network
 
-    order-service:
-        image: ram1uj/order-service:0.1
-        ports: 
-            - "5000-5099:5000"
-        restart: always
-        environment:
-            EUREKA_HOST: eureka-server
-        depends_on:
-            - eureka-server
-        networks:
-            - app-network
+
  
 # Networks to be created to facilitate communication between containers
 networks:
     app-network:  
     
+
+

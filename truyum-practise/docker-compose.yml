@@ -38,11 +38,7 @@ services:
         networks:
             - app-network
 
-<<<<<<< HEAD
-=======
 
->>>>>>> dd01e604fecbbdb9f002d77fdbcad25185aa1727
- 
 # Networks to be created to facilitate communication between containers
 networks:
     app-network:  

@@ -4,7 +4,7 @@ version: '3.7'
 services: 
    
     eureka-server:
-        image: cmkalimuthu/eureka-server
+        image: eureka-server-final
         ports: 
             - "8761:8761"
         restart: always
@@ -13,7 +13,7 @@ services:
             - app-network
     
     truyum-zuul-gateway:
-        image: cmkalimuthu/truyum-zuul-gateway
+        image: truyum-zuul-gateway-final
         ports: 
             - "8083-8182:8083"
         restart: always
@@ -26,7 +26,7 @@ services:
             - app-network
  
     spring-rest-api:
-        image: cmkalimuthu/spring-rest-api
+        image: spring-rest-api-0.1
         ports: 
             - "8080-8179:8080"
         restart: always
